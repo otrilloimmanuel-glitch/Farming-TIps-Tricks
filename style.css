@@ -1,0 +1,191 @@
+/* ================= Reset and Base ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.6;
+  background-color: #f8fff4;
+  color: #333;
+}
+
+/* ================= Navigation ================= */
+header nav {
+  background-color: #2e7d32;
+  color: white;
+  display: flex;
+  flex-direction: column;   /* stack logo and links vertically */
+  align-items: center;      /* center everything */
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+}
+
+header nav .logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  text-align: center;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center; /* center links horizontally */
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+header nav li {
+  display: inline-block;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.05rem;
+  padding: 0.3rem 0.6rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+header nav a:hover {
+  color: #c8e6c9;
+  transform: scale(1.1);
+}
+
+/* Optional: hover underline */
+header nav a::after {
+  content: "";
+  display: block;
+  margin: auto;
+  height: 2px;
+  width: 0px;
+  background: #c8e6c9;
+  transition: width 0.3s ease;
+}
+
+header nav a:hover::after {
+  width: 100%;
+}
+
+/* ================= Hero Section ================= */
+.hero {
+  background: url("images/hero.jpg") no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 6rem 1rem;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+/* ================= Main Sections ================= */
+main {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 2rem 1rem; /* extra padding for breathing room */
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+section h2 {
+  color: #2e7d32;
+  border-bottom: 3px solid #a5d6a7;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* ================= Content Cards ================= */
+.content {
+  display: grid;
+  gap: 1.5rem;
+  justify-content: center; /* center the grid items */
+}
+
+article {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  width: 300px;          /* fixed width for centering */
+  margin: 0 auto;        /* center individual cards on small screens */
+  text-align: center;    /* center text inside cards */
+}
+
+article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+article img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* List bullets inside cards */
+article ul {
+  list-style: disc;       /* show bullets */
+  padding-left: 1.5rem;   /* indent bullets */
+  margin-bottom: 1rem;
+}
+
+article ul li {
+  margin-bottom: 0.4rem;
+  line-height: 1.6;
+}
+
+/* ================= Footer ================= */
+footer {
+  background-color: #2e7d32;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* ================= Scroll Animations ================= */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= Responsive ================= */
+@media (min-width: 768px) {
+  .content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
